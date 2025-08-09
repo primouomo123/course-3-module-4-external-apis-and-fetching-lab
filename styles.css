@@ -67,8 +67,8 @@ h1 {
 }
 
 /* BONUS: Loading Spinner */
-#loading-spinner {
-  display: none;
+#loading-spinner { /* I deleted the display: none here because it was topping the spinner
+  to work */
   margin: 20px auto;
   text-align: center;
 }
