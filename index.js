@@ -7,6 +7,7 @@ function fetchWeatherAlerts() {
   const state = stateInput.value.trim().toUpperCase();
   const errorMessage = document.getElementById("error-message");
   const alertsDisplay = document.getElementById("alerts-display");
+  const loadingSpinner = document.getElementById("loading-spinner");
 
   // Clear previous error message and alerts
   errorMessage.textContent = "";
@@ -19,6 +20,9 @@ function fetchWeatherAlerts() {
     errorMessage.classList.remove("hidden");
     return;
   }
+
+  // Show spinner before starting fetch
+  loadingSpinner.classList.remove("hidden");
 
   fetch(weatherApi + state)
     .then((response) => {
@@ -37,6 +41,10 @@ function fetchWeatherAlerts() {
       errorMessage.classList.remove("hidden");
       // Clear input after error as well
       stateInput.value = "";
+    })
+    .finally(() => {
+      // Hide spinner after fetch completes (success or failure)
+      loadingSpinner.classList.add("hidden");
     });
 }
 
@@ -66,4 +74,4 @@ function displayAlerts(data) {
 }
 
 document.getElementById("fetch-alerts")
-.addEventListener("click", fetchWeatherAlerts);
+  .addEventListener("click", fetchWeatherAlerts);
