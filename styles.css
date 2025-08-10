@@ -61,7 +61,7 @@ h1 {
   margin-top: 10px;
 }
 
-/* Hidden Class for Error Handling */
+/* Hidden Class for Error Handling and spinner handling as well */
 .hidden {
   display: none;
 }

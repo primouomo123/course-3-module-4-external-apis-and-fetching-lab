@@ -32,7 +32,7 @@ function fetchWeatherAlerts() {
       return response.json();
     })
     .then((data) => {
-      displayAlerts(data);
+      displayAlerts(data); // I call displayAlerts here. It was created in line 51
       // Clear input after successful fetch
       stateInput.value = "";
     })
